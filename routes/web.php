@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/new', function () {
     return view('welcome');
 });
+
+Route::get('/edit/{id}', function () {
+    return view('welcome');
+});
