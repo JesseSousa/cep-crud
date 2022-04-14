@@ -17,7 +17,7 @@ export default createStore({
             axios
                 .get("/api/enderecos")
                 .then((res) => {
-                    context.commit("setEnderecos", res.data);
+                    context.commit("setEnderecos", res.data.enderecos);
                 })
                 .catch((err) => console.log(err));
         },
