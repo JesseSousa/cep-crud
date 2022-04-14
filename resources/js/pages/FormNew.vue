@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>Cadastrar Endereco</h1>
+        <h2>Cadastrar Endereco</h2>
         <endereco-form></endereco-form>
     </div>
 </template>
