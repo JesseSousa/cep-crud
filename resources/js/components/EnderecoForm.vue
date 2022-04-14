@@ -54,8 +54,10 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, defineProps } from "vue";
 import axios from "axios";
+
+const { enderecoId } = defineProps(["enderecoId"]);
 
 const cep = ref("");
 const cidade = ref("");
@@ -66,23 +68,43 @@ const error = ref(false);
 const success = ref(false);
 
 const submitForm = () => {
-    axios
-        .post("/api/enderecos", {
-            cep: cep.value,
-            cidade: cidade.value,
-            bairro: bairro.value,
-            uf: uf.value,
-        })
-        .then((res) => {
-            error.value = false;
-            success.value = true;
-            limpaForm();
-        })
-        .catch((err) => {
-            success.value = false;
-            error.value = true;
-            console.log(err);
-        });
+    if (enderecoId) {
+        axios
+            .put(`/api/enderecos/${enderecoId}`, {
+                cep: cep.value,
+                cidade: cidade.value,
+                bairro: bairro.value,
+                uf: uf.value,
+            })
+            .then((res) => {
+                error.value = false;
+                success.value = true;
+                limpaForm();
+            })
+            .catch((err) => {
+                success.value = false;
+                error.value = true;
+                console.log(err);
+            });
+    } else {
+        axios
+            .post("/api/enderecos", {
+                cep: cep.value,
+                cidade: cidade.value,
+                bairro: bairro.value,
+                uf: uf.value,
+            })
+            .then((res) => {
+                error.value = false;
+                success.value = true;
+                limpaForm();
+            })
+            .catch((err) => {
+                success.value = false;
+                error.value = true;
+                console.log(err);
+            });
+    }
 };
 
 const limpaForm = () => {
