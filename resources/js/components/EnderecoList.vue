@@ -27,7 +27,6 @@ import { computed } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
-store.dispatch("loadEnderecos");
 
 const enderecos = computed(() => store.state.enderecos);
 </script>
