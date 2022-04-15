@@ -79,7 +79,6 @@ const submitForm = () => {
             .then((res) => {
                 error.value = false;
                 success.value = true;
-                limpaForm();
             })
             .catch((err) => {
                 success.value = false;
