@@ -47,7 +47,10 @@ class EnderecoController extends Controller
      */
     public function show(Endereco $endereco)
     {
-        //
+        return response()->json([
+            'status' => true,
+            'endereco' => $endereco,
+        ], 200);
     }
 
     /**
