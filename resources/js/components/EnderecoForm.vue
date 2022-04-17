@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps } from "vue";
+import { ref, defineProps, onMounted } from "vue";
 import axios from "axios";
 
 const { enderecoId } = defineProps(["enderecoId"]);
@@ -66,6 +66,18 @@ const uf = ref("");
 
 const error = ref(false);
 const success = ref(false);
+
+onMounted(() => {
+    if (enderecoId) {
+        axios.get(`/api/enderecos/${enderecoId}`).then((res) => {
+            const { endereco } = res.data;
+            cep.value = endereco.cep;
+            cidade.value = endereco.cidade;
+            bairro.value = endereco.bairro;
+            uf.value = endereco.uf;
+        });
+    }
+});
 
 const submitForm = () => {
     if (enderecoId) {

@@ -19685,6 +19685,17 @@ __webpack_require__.r(__webpack_exports__);
     var uf = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)("");
     var error = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
     var success = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      if (enderecoId) {
+        axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/enderecos/".concat(enderecoId)).then(function (res) {
+          var endereco = res.data.endereco;
+          cep.value = endereco.cep;
+          cidade.value = endereco.cidade;
+          bairro.value = endereco.bairro;
+          uf.value = endereco.uf;
+        });
+      }
+    });
 
     var submitForm = function submitForm() {
       if (enderecoId) {
@@ -19736,6 +19747,7 @@ __webpack_require__.r(__webpack_exports__);
       submitForm: submitForm,
       limpaForm: limpaForm,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
       axios: (axios__WEBPACK_IMPORTED_MODULE_1___default())
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
