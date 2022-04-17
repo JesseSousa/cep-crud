@@ -20141,13 +20141,13 @@ var _hoisted_5 = {
 };
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "btn btn-primary"
+  "class": "btn btn-outline-primary"
 }, "Editar", -1
 /* HOISTED */
 );
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "btn btn-danger ms-3"
+  "class": "btn btn-outline-danger ms-3"
 }, "Deletar", -1
 /* HOISTED */
 );

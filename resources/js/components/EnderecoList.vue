@@ -14,9 +14,9 @@
 
             <div class="buttons">
                 <router-link :to="`/edit/${endereco.id}`">
-                    <button class="btn btn-primary">Editar</button>
+                    <button class="btn btn-outline-primary">Editar</button>
                 </router-link>
-                <button class="btn btn-danger ms-3">Deletar</button>
+                <button class="btn btn-outline-danger ms-3">Deletar</button>
             </div>
         </li>
     </ul>
