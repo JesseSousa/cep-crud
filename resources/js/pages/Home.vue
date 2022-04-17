@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container pb-3">
         <div class="d-flex justify-content-between mb-3">
             <h2>Endereços Cadastrados</h2>
             <router-link to="/new">
