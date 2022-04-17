@@ -1,8 +1,10 @@
 <template>
-    <div class="container">
+    <div class="container pb-3">
         <div class="d-flex justify-content-between mb-3">
             <h2>Endereços Cadastrados</h2>
-            <button class="btn btn-success">Cadastrar Novo Endereco</button>
+            <router-link to="/new">
+                <button class="btn btn-success">Cadastrar</button>
+            </router-link>
         </div>
         <endereco-list></endereco-list>
     </div>
