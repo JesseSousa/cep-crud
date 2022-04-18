@@ -10,12 +10,22 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, watch } from "vue";
 import { useStore } from "vuex";
+import { useRoute } from "vue-router";
 
 const store = useStore();
+
+const route = useRoute();
 
 onMounted(() => {
     store.dispatch("loadEnderecos");
 });
+
+watch(
+    () => route.path,
+    () => {
+        store.dispatch("loadEnderecos");
+    }
+);
 </script>
