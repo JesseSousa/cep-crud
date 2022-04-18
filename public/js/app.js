@@ -19772,22 +19772,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm-bundler.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.useStore)();
+    var store = (0,vuex__WEBPACK_IMPORTED_MODULE_2__.useStore)();
     var enderecos = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       return store.state.enderecos;
     });
+
+    var deleteEndereco = function deleteEndereco(id) {
+      axios__WEBPACK_IMPORTED_MODULE_1___default()["delete"]("/api/enderecos/".concat(id)).then(function () {
+        return store.dispatch("loadEnderecos");
+      });
+    };
+
     var __returned__ = {
       store: store,
       enderecos: enderecos,
+      deleteEndereco: deleteEndereco,
       computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed,
-      useStore: vuex__WEBPACK_IMPORTED_MODULE_1__.useStore
+      useStore: vuex__WEBPACK_IMPORTED_MODULE_2__.useStore,
+      axios: (axios__WEBPACK_IMPORTED_MODULE_1___default())
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -20146,12 +20158,7 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "btn btn-outline-danger ms-3"
-}, "Deletar", -1
-/* HOISTED */
-);
-
+var _hoisted_7 = ["onClick"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -20171,7 +20178,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
     }, 1032
     /* PROPS, DYNAMIC_SLOTS */
-    , ["to"]), _hoisted_7])]);
+    , ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      onClick: function onClick($event) {
+        return $setup.deleteEndereco(endereco.id);
+      },
+      "class": "btn btn-outline-danger ms-3"
+    }, " Deletar ", 8
+    /* PROPS */
+    , _hoisted_7)])]);
   }), 256
   /* UNKEYED_FRAGMENT */
   ))]);
